@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { SHADOW } from "../../constants";
+import { STYLE } from "../../constants";
 import { Image, View, FlatList, Text, TouchableOpacity } from "react-native";
 import { useGetStore } from "../../hooks/useGet";
 import { getAllCategories } from "../../services/categories";
@@ -11,12 +11,13 @@ export const Categories = () => {
     initCategories,
     (state) => state.categories
   );
+
   const [selectedCategorie, setSelectedCategorie] = useState(1);
   const onSelectCategorie = (item) => {
-    console.log(item);
     setSelectedCategorie(item.id);
     // let restaurantList = restaurantData.filter(a => a.categories.includes(item.id))
   };
+
   const renderItem = ({ item }) => {
     return (
       <TouchableOpacity
@@ -29,7 +30,7 @@ export const Categories = () => {
           alignItems: "center",
           justifyContent: "center",
           marginRight: 10,
-          ...SHADOW,
+          ...STYLE.shadow,
         }}
         onPress={() => onSelectCategorie(item)}
       >
@@ -64,6 +65,7 @@ export const Categories = () => {
       </TouchableOpacity>
     );
   };
+
   return (
     <Fragment>
       {!error && !loading && typeof data !== "undefined" ? (
@@ -72,8 +74,7 @@ export const Categories = () => {
             padding: 10 * 2,
           }}
         >
-          <Text>Main</Text>
-          <Text>Categorias</Text>
+          <Text style={{ ...STYLE.h2 }}>Categorias</Text>
           <FlatList
             data={data}
             horizontal

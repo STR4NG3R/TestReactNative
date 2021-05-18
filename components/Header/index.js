@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, View, Image, TouchableOpacity } from "react-native";
-
+import { STYLE } from "../.../../../constants";
 export const Header = () => {
   return (
     <View style={{ flexDirection: "row", height: 50 }}>
@@ -28,7 +28,7 @@ export const Header = () => {
             borderRadius: 50,
           }}
         >
-          <Text>Location</Text>
+          <Text style={{ ...STYLE.h2 }}>Location</Text>
         </View>
       </View>
       <TouchableOpacity

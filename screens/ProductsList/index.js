@@ -7,6 +7,7 @@ import {
   ScrollView,
   Text,
   View,
+  Animated,
 } from "react-native";
 import { SharedElement } from "react-navigation-shared-element";
 import { ScreensNavigation } from "../../navigator/MainNavigator";
@@ -39,16 +40,15 @@ export const ProductsList = ({ navigation }) => {
         })
       }
     >
-      <View>
+      <View style={{ backgroundColor: "white", borderRadius: 10 }}>
         <View>
           <SharedElement id={`product.${item.id}.image`}>
             <Image
-              source={{ uri: item.image }}
-              resizeMode="cover"
+              source={{ uri: item.image[0] }}
+              resizeMode="contain"
               style={{
                 width: "100%",
                 height: 200,
-                borderRadius: 10,
               }}
             />
           </SharedElement>

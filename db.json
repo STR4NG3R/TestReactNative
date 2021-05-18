@@ -5,10 +5,14 @@
       "title": "Laptop",
       "price": 9851.83,
       "description": "Acer Aspire 5 A515-56-36UT Slim Laptop",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/71qodgwQQ7S._AC_SL1500_.jpg",
+      "image": [
+        "https://images-na.ssl-images-amazon.com/images/I/71qodgwQQ7S._AC_SL1500_.jpg",
+        "https://images-na.ssl-images-amazon.com/images/I/71YNWpmCehS._AC_SL1500_.jpg",
+        "https://images-na.ssl-images-amazon.com/images/I/714vjS1jJ0S._AC_SL1500_.jpg"
+      ],
       "shortDescription": "15.6\" Full HD Display | 11th Gen Intel Core i3-1115G4 Processor | 4GB DDR4 | 128GB NVMe SSD | WiFi 6 | ",
       "quantity": 29,
-      "categorie": [ 2, 1 ]
+      "categorie": [2, 1]
     },
     {
       "id": 2,
@@ -16,28 +20,80 @@
       "price": 13400.65,
       "description": "Lenovo IdeaPad 3 2020",
       "shortDescription": "visualización táctil HD de 15 Pulgadas, Intel 10ª generación Dual-Core i3-1005G1 CPU, 8GB DDR4 RAM, 256GB",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/719Xp9IGIVL._AC_SL1500_.jpg",
+      "image": [
+        "https://images-na.ssl-images-amazon.com/images/I/719Xp9IGIVL._AC_SL1500_.jpg",
+        "https://images-na.ssl-images-amazon.com/images/I/71PdsywICAS._AC_SL1500_.jpg",
+        "https://images-na.ssl-images-amazon.com/images/I/51NLxFLAuaS._AC_SL1500_.jpg"
+      ],
       "quantity": 29,
-      "categorie": [ 1 ]
+      "categorie": [1]
     },
     {
       "id": 3,
       "title": "Celular",
-      "price": 25399.00 ,
+      "price": 25399.0,
       "description": "SAMSUNG Galaxy S21 Ultra",
       "shortDescription": " 5G SM-G998B/DS Dual Sim 256GB 12GB RAM Versión Internacional - Phantom Black (Negro)",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/61O45C5qASL._AC_SL1000_.jpg",
+      "image": [
+        "https://images-na.ssl-images-amazon.com/images/I/61O45C5qASL._AC_SL1000_.jpg"
+      ],
       "quantity": 29,
-      "categorie": [ 1 ]
+      "categorie": [1]
     },
     {
       "id": 4,
-      "title": "Tenis Nike",
-      "price": 450.3,
-      "description": "Tenis....",
-      "image": "https://image.flaticon.com/icons/png/512/900/900618.png",
+      "title": "Celular",
+      "price": 3885.0,
+      "description": "Xiaomi Redmi Note 10",
+      "shortDescription": "Su memoria de 64GB Y 4GB RAMte permitirá ejecutar varias aplicaciones al mismo tiempo y si estono es suficiente para ti, puedes expandirla con unaSD 512gb, en slot independiente. Desconéctate! Con la súperbatería de 5000 mAh, tendrás energía por mucho más tiemposin necesidad de recargar tu teléfono,si lo requiere cuenta concarga rapidita de33.0W",
+      "image": [
+        "https://m.media-amazon.com/images/I/51Z3dG7yO4L._AC_UL320_.jpg",
+        "https://images-na.ssl-images-amazon.com/images/I/51CXeBjggmL._AC_SL1000_.jpg",
+        "https://images-na.ssl-images-amazon.com/images/I/51iZ4RByKKL._AC_SL1000_.jpg",
+        "https://images-na.ssl-images-amazon.com/images/I/51tiYgE6qCL._AC_SL1000_.jpg"
+      ],
       "quantity": 29,
-      "categorie": [ 1 ]
+      "categorie": [1]
+    },
+    {
+      "id": 5,
+      "title": "Calzado",
+      "price": 1424.99,
+      "description": "Under Armour",
+      "shortDescription": "Tenis para Correr Victory para Mujer",
+      "image": [
+        "https://m.media-amazon.com/images/I/71jK+L9AEIL._AC_UL320_.jpg"
+      ],
+      "quantity": 29,
+      "categorie": [1]
+    },
+    {
+      "id": 6,
+      "title": "Telefono",
+      "price": 4489.0,
+      "description": "Xiaomi Poco X3 Gray",
+      "shortDescription": "Qualcomm Snapdragon 732G octa-core 2.3GHz Cámara Cuádruple, 64 MP (f/1.9, PDAF, wide) + 13 MP (f/2.2, ultrawide) + 2MP (f/2.4, macro)   + 2 MP (f/2.4, profundidad)",
+      "image": [
+        "https://images-na.ssl-images-amazon.com/images/I/61dSb1b0O0L._AC_SL1000_.jpg",
+        "https://images-na.ssl-images-amazon.com/images/I/615R3SptmiL._AC_SL1000_.jpg",
+        "https://images-na.ssl-images-amazon.com/images/I/61UVOt42zjL._AC_SL1000_.jpg"
+      ],
+      "quantity": 29,
+      "categorie": [1]
+    },
+    {
+      "id": 7,
+      "title": "Calzado",
+      "price": 610,
+      "description": "MayZero Zapatillas para correr",
+      "shortDescription": "Zapatos de moda para hombre: diseño simple y elegante, líneas suaves y colores vibrantes, mostrando la tendencia de la personalidad.",
+
+      "image": [
+        "https://images-na.ssl-images-amazon.com/images/I/81vkrpoi6zL._AC_SY500_.jpg",
+        "https://images-na.ssl-images-amazon.com/images/I/81vkrpoi6zL._AC_SY500_.jpg"
+      ],
+      "quantity": 12,
+      "categorie": [1, 2, 3]
     }
   ],
   "categories": [

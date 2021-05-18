@@ -28,6 +28,7 @@ export const styles = StyleSheet.create({
   },
   productImage: {
     height: 300,
+    resizeMode: "contain",
     width: "100%",
   },
   productDetails: {
