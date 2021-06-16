@@ -18,9 +18,8 @@ export const useGet = (url, config, initialValue) => {
       .catch((_error) => {
         setError(true);
       });
-    return () => {};
+    return () => { };
   }, [url]);
-
   return {
     loading,
     error,
@@ -37,7 +36,7 @@ export const useGetStore = (service, dispatch, action) => {
         setLoading(false);
       })
       .catch((_error) => setError(true));
-    return () => {};
+    return () => { };
   }, [service, action]);
   return { loading, error };
 };

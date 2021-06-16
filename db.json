@@ -4,25 +4,46 @@
       "id":1,
     "name": "Tenis Nike",
     "price": 450.3,
-    "description": "Tenis...."
+    "description": "Tenis....",
     "image": "https://",
-    "quantity": 29
+    "quantity": 29,
+    "categorie": 2
     },
     {
       "id":2,
     "name": "Tenis Nike",
     "price": 450.3,
-    "description": "Tenis...."
+    "description": "Tenis....",
     "image": "https://",
-    "quantity": 29
+    "quantity": 29,
+    "categorie": 1 
     },
     {
-      "id":3,
+    "id":3,
     "name": "Tenis Nike",
     "price": 450.3,
-    "description": "Tenis...."
+    "description": "Tenis....",
     "image": "https://",
-    "quantity": 29
+    "quantity": 29,
+    "categorie": 1 
+    }
+  ],
+  "categories":[
+    {
+      "id": 1,
+      "description": "Calzado"
     },
+    {
+      "id": 2,
+      "description": "Electrodomestico"
+    },
+    {
+      "id": 3,
+      "description": "Electronica"
+    },
+    {
+      "id": 4,
+      "description": "Ropa"
+    }
   ]
 }
