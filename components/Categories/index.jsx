@@ -1,6 +1,16 @@
 import React, { useState } from "react";
 import { Image, View, FlatList, Text, TouchableOpacity } from "react-native";
+import { useDispatch } from "react-redux";
+import { useGetStore } from "../../hooks/useGet";
+import { initCategories } from "../../reducers/categories";
+
 export const Categories = ({ categories }) => {
+  const dispatch = useDispatch();
+  useGetStore(
+    getAllCategories,
+    dispatch,
+    initCategories
+  );
   const [selectedCategorie, setSelectedCategorie] = useState();
   const onSelectCategorie = (item) => {
     // let restaurantList = restaurantData.filter(a => a.categories.includes(item.id))
@@ -51,8 +61,7 @@ export const Categories = ({ categories }) => {
     <View
       style={{
         padding: 10 * 2,
-        color:
-          selectedCategorie?.id === item.id ? "white" : "black",
+        color: selectedCategorie?.id === item.id ? "white" : "black",
       }}
     >
       <Text>Main</Text>
