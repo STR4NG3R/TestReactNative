@@ -1,0 +1,28 @@
+{
+  "products":[
+    {
+      "id":1,
+    "name": "Tenis Nike",
+    "price": 450.3,
+    "description": "Tenis...."
+    "image": "https://",
+    "quantity": 29
+    },
+    {
+      "id":2,
+    "name": "Tenis Nike",
+    "price": 450.3,
+    "description": "Tenis...."
+    "image": "https://",
+    "quantity": 29
+    },
+    {
+      "id":3,
+    "name": "Tenis Nike",
+    "price": 450.3,
+    "description": "Tenis...."
+    "image": "https://",
+    "quantity": 29
+    },
+  ]
+}
