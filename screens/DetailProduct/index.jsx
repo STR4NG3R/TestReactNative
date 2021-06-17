@@ -1,12 +1,16 @@
 import React, { useEffect, useRef } from "react";
 import { Text, View, Animated, Icon, Button, Image } from "react-native";
-import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
+import {
+  SafeAreaView,
+  useSafeAreaInsets,
+} from "react-native-safe-area-context";
 import { SharedElement } from "react-navigation-shared-element";
 import { styles, SPACING } from "../../styles/Posts";
 
 export const DetailProduct = ({ route, navigation }) => {
   const safeInsets = useSafeAreaInsets();
-  const { product } = route.params;
+  const { item } = route.params;
+  console.log("HELP---", item);
   const opacity = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
@@ -37,14 +41,14 @@ export const DetailProduct = ({ route, navigation }) => {
           {/* <Icon name="more-horizontal" /> */}
         </Animated.View>
 
-        <SharedElement id={`product.${product.id}.image`}>
-          <Image source={{ uri: product.image }} style={styles.productImage} />
+        <SharedElement id={`product.${item.id}.image`}>
+          <Image source={{ uri: item.image }} style={styles.productImage} />
         </SharedElement>
 
         <View style={styles.productDetails}>
-          <Text style={styles.productTitle}>{product.title}</Text>
+          <Text style={styles.productTitle}>{item.title}</Text>
 
-          <Text style={styles.productPrice}>€{product.price}</Text>
+          <Text style={styles.productPrice}>${item.price}</Text>
 
           <Button title="Contact Seller" style={styles.productContactButton} />
 
@@ -54,11 +58,10 @@ export const DetailProduct = ({ route, navigation }) => {
               fontSize: 17,
             }}
           >
-            {product.description}
+            {item.description}
           </Animated.Text>
         </View>
       </View>
     </SafeAreaView>
   );
 };
-

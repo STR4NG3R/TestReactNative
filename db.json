@@ -7,7 +7,7 @@
       "description": "Tenis....",
       "image": "https://",
       "quantity": 29,
-      "categorie": 2
+      "categorie": [ 2, 1 ]
     },
     {
       "id": 2,
@@ -16,7 +16,7 @@
       "description": "Tenis....",
       "image": "https://image.flaticon.com/icons/png/512/900/900618.png",
       "quantity": 29,
-      "categorie": 1
+      "categorie": [ 1 ]
     },
     {
       "id": 3,
@@ -25,7 +25,7 @@
       "description": "Tenis....",
       "image": "https://image.flaticon.com/icons/png/512/900/900618.png",
       "quantity": 29,
-      "categorie": 1
+      "categorie": [ 1 ]
     }
   ],
   "categories": [

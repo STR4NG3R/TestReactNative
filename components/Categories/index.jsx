@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from "react";
+import { SHADOW } from "../../constants";
 import { Image, View, FlatList, Text, TouchableOpacity } from "react-native";
 import { useGetStore } from "../../hooks/useGet";
 import { getAllCategories } from "../../services/categories";
@@ -28,16 +29,7 @@ export const Categories = () => {
           alignItems: "center",
           justifyContent: "center",
           marginRight: 10,
-          shadowColor: "#000",
-          shadowOffset: {
-            width: 0,
-            height: 2,
-          },
-          shadowOpacity: 0.25,
-          shadowRadius: 3.84,
-
-          elevation: 5,
-          // ...styles.shadow,
+          ...SHADOW,
         }}
         onPress={() => onSelectCategorie(item)}
       >

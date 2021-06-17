@@ -23,8 +23,8 @@ export const MainScreen = () => (
       name={ScreensNavigation["DETAIL_PRODUCT"]}
       component={DetailProduct}
       sharedElementsConfig={(route) => {
-        const { product } = route.params;
-        return [`product.${product.id}.image`];
+        const { item } = route.params;
+        return [`product.${item.id}.image`];
       }}
     />
   </Stack.Navigator>
