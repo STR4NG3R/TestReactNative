@@ -22,15 +22,6 @@ export const MainScreen = () => (
     <Stack.Screen
       name={ScreensNavigation["DETAIL_PRODUCT"]}
       component={DetailProduct}
-      options={() => ({
-        transitionSpec: {
-          open: { animation: "spring", config: { duration: 1000 } },
-          close: { animation: "spring", config: { duration: 1000 } },
-        },
-        cardStyleInterpolator: ({ current: { progress } }) => {
-          return { cardStyle: { opacity: progress } };
-        },
-      })}
       sharedElementsConfig={(route) => {
         const { product } = route.params;
         return [`product.${product.id}.image`];

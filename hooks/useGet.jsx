@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const common = () => {
   const [loading, setLoading] = useState(true);
@@ -18,7 +19,7 @@ export const useGet = (url, config, initialValue) => {
       .catch((_error) => {
         setError(true);
       });
-    return () => { };
+    return () => {};
   }, [url]);
   return {
     loading,
@@ -27,8 +28,13 @@ export const useGet = (url, config, initialValue) => {
   };
 };
 
-export const useGetStore = (service, dispatch, action) => {
+export const useGetStore = (
+  service,
+  action,
+  stateSelector = (state) => state
+) => {
   const { loading, setLoading, error, setError } = common();
+  const dispatch = useDispatch();
   useEffect(() => {
     service()
       .then((res) => {
@@ -38,7 +44,8 @@ export const useGetStore = (service, dispatch, action) => {
       .catch((_error) => {
         setError(true);
       });
-    return () => { };
+    return () => {};
   }, [service, action]);
-  return { loading, error };
+  const data = useSelector((state) => stateSelector(state));
+  return { loading, error, data };
 };

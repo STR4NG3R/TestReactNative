@@ -1,48 +1,52 @@
 {
-  "products":[
-    {
-      "id":1,
-    "name": "Tenis Nike",
-    "price": 450.3,
-    "description": "Tenis....",
-    "image": "https://",
-    "quantity": 29,
-    "categorie": 2
-    },
-    {
-      "id":2,
-    "name": "Tenis Nike",
-    "price": 450.3,
-    "description": "Tenis....",
-    "image": "https://",
-    "quantity": 29,
-    "categorie": 1 
-    },
-    {
-    "id":3,
-    "name": "Tenis Nike",
-    "price": 450.3,
-    "description": "Tenis....",
-    "image": "https://",
-    "quantity": 29,
-    "categorie": 1 
-    }
-  ],
-  "categories":[
+  "products": [
     {
       "id": 1,
+      "title": "Tenis Nike",
+      "price": 450.3,
+      "description": "Tenis....",
+      "image": "https://",
+      "quantity": 29,
+      "categorie": 2
+    },
+    {
+      "id": 2,
+      "title": "Tenis Nike",
+      "price": 450.3,
+      "description": "Tenis....",
+      "image": "https://image.flaticon.com/icons/png/512/900/900618.png",
+      "quantity": 29,
+      "categorie": 1
+    },
+    {
+      "id": 3,
+      "title": "Tenis Nike",
+      "price": 450.3,
+      "description": "Tenis....",
+      "image": "https://image.flaticon.com/icons/png/512/900/900618.png",
+      "quantity": 29,
+      "categorie": 1
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "image": "https://image.flaticon.com/icons/png/512/900/900618.png",
       "description": "Calzado"
     },
     {
       "id": 2,
-      "description": "Electrodomestico"
+      "image": "https://image.flaticon.com/icons/png/512/609/609803.png",
+      "description": "Hogar"
     },
     {
       "id": 3,
-      "description": "Electronica"
+      "image": "https://image.flaticon.com/icons/png/512/186/186239.png",
+      "description": "Celular"
     },
     {
       "id": 4,
+      "image": "https://image.flaticon.com/icons/png/512/3081/3081966.png",
       "description": "Ropa"
     }
   ]

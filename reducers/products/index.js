@@ -1,7 +1,8 @@
 export const productReducer = (state = [], action) => {
   switch (action.type) {
     case "@product/init":
-      return state.payload;
+      console.log(action.payload);
+      return action.payload;
     case "@produc/filter-categories":
       const { categorie } = action.payload;
       return state.filter((item) => item.categorie === categorie);

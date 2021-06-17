@@ -11,23 +11,19 @@ import {
 import { SharedElement } from "react-navigation-shared-element";
 import { ScreensNavigation } from "../MainScreen";
 import { styles } from "../../styles/Posts";
-import { Header } from "../../components/Header";
+// import { Header } from "../../components/Header";
 import { useGetStore } from "../../hooks/useGet";
-import { useDispatch, useSelector } from "react-redux";
 import { getAllProducts } from "../../services/products";
 import { initProducts } from "../../reducers/products";
-// import { Categories } from "../../components/Categories";
+import { Categories } from "../../components/Categories";
 
 const POST_GUTTER_WIDTH = 2;
 
 export const ProductsList = ({ navigation }) => {
-  const products = useSelector((state) => state.products);
-  const dispatch = useDispatch();
-  console.log(products);
-  const { loading, error } = useGetStore(
+  const { loading, error, data } = useGetStore(
     getAllProducts,
-    dispatch,
-    initProducts
+    initProducts,
+    (state) => state.products
   );
 
   const dimensions = useWindowDimensions();
@@ -35,48 +31,48 @@ export const ProductsList = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.wrapper}>
-      <Header />
-      {/* <Categories /> */}
+      {/* <Header /> */}
+      <Categories />
       <ScrollView style={styles.wrapper}>
         <Text style={styles.listHeader}>Punto de Ventas</Text>
 
         <View style={styles.products}>
-          {loading && !error && typeof products !== "undefined"
-            ? products.map((product, index) => (
-              <Pressable
-                key={product.id}
-                onPress={() =>
-                  navigation.push(ScreensNavigation["DETAIL_PRODUCT"], {
-                    product,
-                  })
-                }
-                style={{
-                  width: imageWidth,
-                }}
-              >
-                <SharedElement id={`product.${product.id}.image`}>
-                  <Image
-                    source={{ uri: product.image }}
-                    style={{
-                      height: 180,
-                      width: imageWidth,
-                      marginRight: index % 2 === 1 ? 0 : POST_GUTTER_WIDTH,
-                      marginLeft: index % 2 === 1 ? POST_GUTTER_WIDTH : 0,
-                    }}
-                  />
-                </SharedElement>
+          {!loading && !error && typeof data !== "undefined"
+            ? data.map((product, index) => (
+                <Pressable
+                  key={product.id}
+                  onPress={() =>
+                    navigation.push(ScreensNavigation["DETAIL_PRODUCT"], {
+                      product,
+                    })
+                  }
+                  style={{
+                    width: imageWidth,
+                  }}
+                >
+                  <SharedElement id={`product.${product.id}.image`}>
+                    <Image
+                      source={{ uri: product.image }}
+                      style={{
+                        height: 180,
+                        width: imageWidth,
+                        marginRight: index % 2 === 1 ? 0 : POST_GUTTER_WIDTH,
+                        marginLeft: index % 2 === 1 ? POST_GUTTER_WIDTH : 0,
+                      }}
+                    />
+                  </SharedElement>
 
-                <View style={styles.productTexts}>
-                  <Text numberOfLines={1} style={styles.productHeader}>
-                    €{product.price} · {product.title}
-                  </Text>
+                  <View style={styles.productTexts}>
+                    <Text numberOfLines={1} style={styles.productHeader}>
+                      ${product.price} · {product.title}
+                    </Text>
 
-                  <Text numberOfLines={1} style={styles.productDescription}>
-                    {product.description}
-                  </Text>
-                </View>
-              </Pressable>
-            ))
+                    <Text numberOfLines={1} style={styles.productDescription}>
+                      {product.description}
+                    </Text>
+                  </View>
+                </Pressable>
+              ))
             : null}
         </View>
       </ScrollView>

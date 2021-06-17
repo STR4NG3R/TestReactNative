@@ -1,7 +1,7 @@
 export const categoriesReducer = (state = [], action) => {
   switch (action.type) {
-    case "@categorie/init":
-      return state.payload;
+    case "@categories/init":
+      return action.payload;
     default:
       return state;
     // throw new Error("This state is not supported");
@@ -10,7 +10,7 @@ export const categoriesReducer = (state = [], action) => {
 
 export const initCategories = (categories) => {
   return {
-    type: "@categorie/init",
+    type: "@categories/init",
     payload: categories,
   };
 };

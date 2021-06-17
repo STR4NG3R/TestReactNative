@@ -1,34 +1,43 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import { Image, View, FlatList, Text, TouchableOpacity } from "react-native";
-import { useDispatch } from "react-redux";
 import { useGetStore } from "../../hooks/useGet";
+import { getAllCategories } from "../../services/categories";
 import { initCategories } from "../../reducers/categories";
 
-export const Categories = ({ categories }) => {
-  const dispatch = useDispatch();
-  useGetStore(
+export const Categories = () => {
+  const { error, loading, data } = useGetStore(
     getAllCategories,
-    dispatch,
-    initCategories
+    initCategories,
+    (state) => state.categories
   );
-  const [selectedCategorie, setSelectedCategorie] = useState();
+  const [selectedCategorie, setSelectedCategorie] = useState(1);
   const onSelectCategorie = (item) => {
+    console.log(item);
+    setSelectedCategorie(item.id);
     // let restaurantList = restaurantData.filter(a => a.categories.includes(item.id))
-    setSelectedCategorie(item);
   };
   const renderItem = ({ item }) => {
     return (
       <TouchableOpacity
         style={{
+          borderRadius: 10,
           padding: 10,
           paddingBottom: 20,
-          backgroundColor:
-            setSelectedCategorie?.id === item.id ? "orange" : "white",
+          backgroundColor: selectedCategorie === item.id ? "orange" : "white",
           primary: "white",
           alignItems: "center",
           justifyContent: "center",
           marginRight: 10,
-          ...styles.shadow,
+          shadowColor: "#000",
+          shadowOffset: {
+            width: 0,
+            height: 2,
+          },
+          shadowOpacity: 0.25,
+          shadowRadius: 3.84,
+
+          elevation: 5,
+          // ...styles.shadow,
         }}
         onPress={() => onSelectCategorie(item)}
       >
@@ -38,43 +47,51 @@ export const Categories = ({ categories }) => {
             height: 50,
             borderRadius: 25,
             alignItems: "center",
+            backgroundColor: selectedCategorie === item.id ? "white" : "gray",
             justifyContent: "center",
             backgroundColor: "white",
           }}
         >
           <Image
-            // source={}
+            source={{ uri: item.image }}
             resizeMode="contain"
             style={{
-              backgroundColor:
-                selectedCategorie?.id === item.id ? "white" : "light gray",
               width: 30,
               height: 30,
             }}
           />
         </View>
-        <Text style={{ marginTop: 10, color: "white" }}>{item.name}</Text>
+        <Text
+          style={{
+            marginTop: 10,
+            color: selectedCategorie === item.id ? "white" : "black",
+          }}
+        >
+          {item.description}
+        </Text>
       </TouchableOpacity>
     );
   };
   return (
-    <View
-      style={{
-        padding: 10 * 2,
-        color: selectedCategorie?.id === item.id ? "white" : "black",
-      }}
-    >
-      <Text>Main</Text>
-      <Text>Categorias</Text>
-
-      <FlatList
-        data={categories}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        keyExtractor={(item) => `${item.id}`}
-        renderItem={renderItem}
-        contentContainerStyle={{ paddingVertical: 10 * 2 }}
-      ></FlatList>
-    </View>
+    <Fragment>
+      {!error && !loading && typeof data !== "undefined" ? (
+        <View
+          style={{
+            padding: 10 * 2,
+          }}
+        >
+          <Text>Main</Text>
+          <Text>Categorias</Text>
+          <FlatList
+            data={data}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            keyExtractor={(item) => `${item.id}`}
+            renderItem={renderItem}
+            contentContainerStyle={{ paddingVertical: 10 * 2 }}
+          ></FlatList>
+        </View>
+      ) : null}
+    </Fragment>
   );
 };
