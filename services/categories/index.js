@@ -1,4 +1,4 @@
 import axios from "axios";
-
+import { CONFIG } from "../../config"
 export const getAllCategories = () =>
-  axios.get("http://localhost:3001/categories");
+  axios.get(`http://${CONFIG.URL}:${CONFIG.PORT}/categories`);

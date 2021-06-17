@@ -31,11 +31,13 @@ export const useGetStore = (service, dispatch, action) => {
   const { loading, setLoading, error, setError } = common();
   useEffect(() => {
     service()
-      .then(({ data }) => {
-        dispatch(action(data));
+      .then((res) => {
+        dispatch(action(res.data));
         setLoading(false);
       })
-      .catch((_error) => setError(true));
+      .catch((_error) => {
+        setError(true);
+      });
     return () => { };
   }, [service, action]);
   return { loading, error };

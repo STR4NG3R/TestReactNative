@@ -1,5 +1,4 @@
 export const productReducer = (state = [], action) => {
-  console.log(state, action);
   switch (action.type) {
     case "@product/init":
       return state.payload;
