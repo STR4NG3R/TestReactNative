@@ -4,11 +4,9 @@ export const basketReducer = (state = [], action) => {
       console.log(action.payload);
       return action.payload;
     case "@basket/remove":
-      const { categorie } = action.payload;
-      return state.filter((item) => item.categorie === categorie);
+      return state;
     case "@basket/add":
-      const { categorie } = action.payload;
-      return state.filter((item) => item.categorie === categorie);
+      return state;
     default:
       return state;
   }

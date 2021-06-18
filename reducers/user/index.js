@@ -4,8 +4,7 @@ export const userReducer = (state = [], action) => {
       console.log(action.payload);
       return action.payload;
     case "@user/logout":
-      const { categorie } = action.payload;
-      return state.filter((item) => item.categorie === categorie);
+      return state;
     default:
       return state;
   }
