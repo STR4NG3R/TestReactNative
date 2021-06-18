@@ -10,7 +10,6 @@ import { styles, SPACING } from "../../styles/Posts";
 export const DetailProduct = ({ route, navigation }) => {
   const safeInsets = useSafeAreaInsets();
   const { item } = route.params;
-  console.log("HELP---", item);
   const opacity = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {

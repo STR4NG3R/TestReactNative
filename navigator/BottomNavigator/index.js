@@ -66,17 +66,17 @@ export const BottomNavigator = () => {
         {
           name: "Home",
           component: MainNavigator,
-          uri: "https://image.flaticon.com/icons/png/512/1524/1524855.png",
+          uri: "https://image.flaticon.com/icons/png/512/1524/1524711.png",
         },
         {
           name: "Basket",
           component: MainNavigator,
-          uri: "https://image.flaticon.com/icons/png/512/1524/1524855.png",
+          uri: "https://image.flaticon.com/icons/png/512/60/60992.png",
         },
         {
           name: "Me",
           component: MainNavigator,
-          uri: "https://image.flaticon.com/icons/png/512/1524/1524855.png",
+          uri: "https://image.flaticon.com/icons/png/512/74/74472.png",
         },
       ].map(({ name, uri, component }) => (
         <Tab.Screen

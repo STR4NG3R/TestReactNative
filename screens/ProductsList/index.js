@@ -1,5 +1,5 @@
 import React from "react";
-import { SHADOW } from "../../constants";
+import { STYLE } from "../../constants";
 import {
   Image,
   Pressable,
@@ -25,7 +25,6 @@ export const ProductsList = ({ navigation }) => {
     (state) => state.products
   );
   const getCategorieById = (id) => {
-    // const categories = useSelector((state) => state.categories);
     // return categories.find((categorie) => categorie.id === id).description;
     return "Test";
   };
@@ -41,54 +40,52 @@ export const ProductsList = ({ navigation }) => {
       }
     >
       <View>
-        <SharedElement id={`product.${item.id}.image`}>
-          <Image
-            source={{ uri: item.image }}
-            resizeMode="cover"
-            style={{
-              width: "100%",
-              height: 200,
-              borderRadius: 10,
-            }}
-          />
-        </SharedElement>
+        <View>
+          <SharedElement id={`product.${item.id}.image`}>
+            <Image
+              source={{ uri: item.image }}
+              resizeMode="cover"
+              style={{
+                width: "100%",
+                height: 200,
+                borderRadius: 10,
+              }}
+            />
+          </SharedElement>
+        </View>
+        <View
+          style={{
+            position: "absolute",
+            bottom: 0,
+            height: 50,
+            width: 100,
+            backgroundColor: "white",
+            borderTopRightRadius: 10,
+            borderBottomLeftRadius: 10,
+            justifyContent: "center",
+            alignContent: "center",
+            ...STYLE.shadow,
+          }}
+        >
+          <Text style={{ textAlign: "center", ...STYLE.h4 }}>{item.title}</Text>
+        </View>
       </View>
+      <Text style={{ ...STYLE.h3 }}>{item.description}</Text>
       <View
         style={{
-          position: "absolute",
-          bottom: 0,
-          height: 50,
-          width: 100,
-          backgroundColor: "white",
-          borderTopRightRadius: 10,
-          borderBottomLeftRadius: 10,
-          justifyContent: "center",
-          alignContent: "center",
-          ...SHADOW,
+          padding: 10,
+          flexDirection: "row",
+          marginLeft: 10,
         }}
       >
-        <Text style={{ textAlign: "center" }} h4>
-          {item.title}
-        </Text>
+        {item.categorie.map((id) => (
+          <View style={{ flexDirection: "row" }}>
+            <Text style={{ ...STYLE.h4 }}>{getCategorieById(id)}</Text>
+            <Text style={{ ...STYLE.h4 }}> . </Text>
+          </View>
+        ))}
+        <Text style={{ ...STYLE.h4 }}>$ {item.price}</Text>
       </View>
-      {/* <Text h1>{item.title}</Text> */}
-      {/* <View style={{ marginTop: 10, flexDirection: "row" }}> */}
-      {/* <Image */}
-      {/*   source={{ uri: item.image }} */}
-      {/*   style={{ */}
-      {/*     width: 20, */}
-      {/*     height: 20, */}
-      {/*     tintColor: "orange", */}
-      {/*     marginRight: 10, */}
-      {/*   }} */}
-      {/* /> */}
-      {/* {/1* </SharedElement> *1/} */}
-      {/* </View> */}
-      {/* <View style={{ marginLeft: 10, flexDirection: "row" }}> */}
-      {/*   {item.categorie.map((id) => ( */}
-      {/*     <Text>{getCategorieById(id)}</Text> */}
-      {/*   ))} */}
-      {/* </View> */}
     </Pressable>
   );
 
@@ -104,13 +101,12 @@ export const ProductsList = ({ navigation }) => {
               renderItem={renderItem}
               contentContainerStyle={{
                 paddingHorizontal: 10 * 2,
-                paddingBottom: 30,
+                paddingBottom: 60,
               }}
             />
           ) : null}
         </View>
       </ScrollView>
-      {/* <Navigation /> */}
     </SafeAreaView>
   );
 };
