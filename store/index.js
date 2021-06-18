@@ -1,13 +1,13 @@
 const { combineReducers, createStore } = require("redux");
-import { useReducer } from "react";
 import { categoriesReducer } from "../reducers/categories";
 import { productReducer } from "../reducers/products";
 import { basketReducer } from "../reducers/basket";
+import { userReducer } from "../reducers/user";
 
 const reducer = combineReducers({
   categories: categoriesReducer,
   products: productReducer,
-  user: useReducer,
+  user: userReducer,
   basket: basketReducer,
 });
 
