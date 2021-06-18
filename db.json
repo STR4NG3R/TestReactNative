@@ -2,24 +2,36 @@
   "products": [
     {
       "id": 1,
-      "title": "Tenis Nike",
-      "price": 450.3,
-      "description": "Tenis....",
-      "image": "https://",
+      "title": "Laptop",
+      "price": 9851.83,
+      "description": "Acer Aspire 5 A515-56-36UT Slim Laptop",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/71qodgwQQ7S._AC_SL1500_.jpg",
+      "shortDescription": "15.6\" Full HD Display | 11th Gen Intel Core i3-1115G4 Processor | 4GB DDR4 | 128GB NVMe SSD | WiFi 6 | ",
       "quantity": 29,
       "categorie": [ 2, 1 ]
     },
     {
       "id": 2,
-      "title": "Tenis Nike",
-      "price": 450.3,
-      "description": "Tenis....",
-      "image": "https://image.flaticon.com/icons/png/512/900/900618.png",
+      "title": "Laptop",
+      "price": 13400.65,
+      "description": "Lenovo IdeaPad 3 2020",
+      "shortDescription": "visualización táctil HD de 15 Pulgadas, Intel 10ª generación Dual-Core i3-1005G1 CPU, 8GB DDR4 RAM, 256GB",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/719Xp9IGIVL._AC_SL1500_.jpg",
       "quantity": 29,
       "categorie": [ 1 ]
     },
     {
       "id": 3,
+      "title": "Celular",
+      "price": 25399.00 ,
+      "description": "SAMSUNG Galaxy S21 Ultra",
+      "shortDescription": " 5G SM-G998B/DS Dual Sim 256GB 12GB RAM Versión Internacional - Phantom Black (Negro)",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/61O45C5qASL._AC_SL1000_.jpg",
+      "quantity": 29,
+      "categorie": [ 1 ]
+    },
+    {
+      "id": 4,
       "title": "Tenis Nike",
       "price": 450.3,
       "description": "Tenis....",
