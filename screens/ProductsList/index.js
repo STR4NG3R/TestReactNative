@@ -6,11 +6,10 @@ import {
   SafeAreaView,
   ScrollView,
   Text,
-  TouchableOpacity,
   View,
 } from "react-native";
 import { SharedElement } from "react-navigation-shared-element";
-import { ScreensNavigation } from "../MainScreen";
+import { ScreensNavigation } from "../../navigator/MainNavigator";
 import { styles } from "../../styles/Posts";
 import { Header } from "../../components/Header";
 import { useGetStore } from "../../hooks/useGet";
@@ -18,10 +17,6 @@ import { getAllProducts } from "../../services/products";
 import { initProducts } from "../../reducers/products";
 import { Categories } from "../../components/Categories";
 import { FlatList } from "react-native-gesture-handler";
-import { getAllCategories } from "../../services/categories";
-import { useSelector } from "react-redux";
-
-const POST_GUTTER_WIDTH = 2;
 
 export const ProductsList = ({ navigation }) => {
   const { loading, error, data } = useGetStore(
@@ -96,6 +91,7 @@ export const ProductsList = ({ navigation }) => {
       {/* </View> */}
     </Pressable>
   );
+
   return (
     <SafeAreaView style={styles.wrapper}>
       <Header />
@@ -114,27 +110,7 @@ export const ProductsList = ({ navigation }) => {
           ) : null}
         </View>
       </ScrollView>
+      {/* <Navigation /> */}
     </SafeAreaView>
   );
 };
-
-/* <Pressable */
-/*   key={product.id} */
-/*   onPress={() => */
-/*     navigation.push(ScreensNavigation["DETAIL_PRODUCT"], { */
-/*       product, */
-/*     }) */
-/*   } */
-/*   style={{ */
-/*     width: imageWidth, */
-/*   }} */
-/* > */
-/*   <View style={styles.productTexts}> */
-/*     <Text numberOfLines={1} style={styles.productHeader}> */
-/*       ${product.price} · {product.title} */
-/*     </Text> */
-/*     <Text numberOfLines={1} style={styles.productDescription}> */
-/*       {product.description} */
-/*     </Text> */
-/*   </View> */
-/* </Pressable> */

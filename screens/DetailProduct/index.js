@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { Text, View, Animated, Icon, Button, Image } from "react-native";
+import { Text, View, Animated, Button, Image } from "react-native";
 import {
   SafeAreaView,
   useSafeAreaInsets,
