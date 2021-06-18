@@ -3,7 +3,7 @@ export const productReducer = (state = [], action) => {
     case "@product/init":
       console.log(action.payload);
       return action.payload;
-    case "@produc/filter-categories":
+    case "@product/filter-categories":
       const { categorie } = action.payload;
       return state.filter((item) => item.categorie === categorie);
     default:
