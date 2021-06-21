@@ -116,6 +116,11 @@
       "id": 4,
       "image": "https://image.flaticon.com/icons/png/512/3081/3081966.png",
       "description": "Ropa"
+    },
+    {
+      "id": 5,
+      "image": "https://image.flaticon.com/icons/png/512/3081/3081966.png",
+      "description": "Algo"
     }
   ]
 }

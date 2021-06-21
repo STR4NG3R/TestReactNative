@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { Text, View, Animated, Button, Image } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import { changeQuantity } from "../../reducers/basket";
+import {ChangeQuantity} from "../../components/ChangeQuantity"
 import {
   SafeAreaView,
   useSafeAreaInsets,
@@ -23,11 +22,10 @@ export const DetailProduct = ({ route, navigation }) => {
     }).start();
   }, []);
 
+  const dispatch = useDispatch()
   const basket = useSelector((state) => state.basket.products);
-  const ifIdInBasket = (id) => {
-    const finded = basket.find((product) => product.id === id);
-    return finded;
-  };
+
+  const ifIdInBasket = (id) => basket[id]
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -69,78 +67,16 @@ export const DetailProduct = ({ route, navigation }) => {
             ))}
           </Animated.ScrollView>
         </SharedElement>
-        <View
-          style={{
-            position: "absolute",
-            bottom: -20,
-            width: 50,
-            justifyContent: "center",
-            flexDirection: "row",
-          }}
-        >
-          <TouchableOpacity
-            style={{
-              width: 50,
-              backgroundColor: "white",
-              alignItems: "center",
-              justifyContent: "center",
-              borderTopLeftRadius: 10,
-              borderBottomLeftRadius: 10,
-            }}
-            onPress={() => {
-              useDispatch(changeQuantity(item, -1));
-            }}
-          >
-            <Text>-</Text>
-          </TouchableOpacity>
-        </View>
-        <View
-          style={{
-            position: "absolute",
-            bottom: -20,
-            width: 50,
-            justifyContent: "center",
-            flexDirection: "row",
-          }}
-        >
-          <TouchableOpacity
-            style={{
-              width: 50,
-              backgroundColor: "white",
-              alignItems: "center",
-              justifyContent: "center",
-              borderTopLeftRadius: 10,
-              borderBottomLeftRadius: 10,
-            }}
-          >
-            <Text>{ifIdInBasket(item.id) ? basket.quantity : 0}</Text>
-          </TouchableOpacity>
-        </View>
-        <View
-          style={{
-            position: "absolute",
-            bottom: -20,
-            width: 50,
-            justifyContent: "center",
-            flexDirection: "row",
-          }}
-        >
-          <TouchableOpacity
-            style={{
-              width: 50,
-              backgroundColor: "white",
-              alignItems: "center",
-              justifyContent: "center",
-              borderTopLeftRadius: 10,
-              borderBottomLeftRadius: 10,
-            }}
-            onPress={() => {
-              useDispatch(changeQuantity(item, 1));
-            }}
-          >
-            <Text>+</Text>
-          </TouchableOpacity>
-        </View>
+
+        <ChangeQuantity
+          dispatch={dispatch}
+          basket={basket}
+          ifIdInBasket={ifIdInBasket}
+          item={item}
+        />
+
+
+
         <View style={styles.productDetails}>
           <Text style={styles.productTitle}>{item.title}</Text>
 

@@ -1,3 +1,4 @@
+
 export const basketReducer = (
   state = {
     products: [],
@@ -6,21 +7,31 @@ export const basketReducer = (
 ) => {
   switch (action.type) {
     case "@basket/init":
-      console.log(action.payload);
       return action.payload;
-    case "@basket/remove":
-      return state;
+    case "@basket/remove":{
+      const {item} = action.payload
+      const {[item.id]: value, ...newState } = state.products
+      return {...state, products: newState}
+    }
     case "@basket/add":
       return state;
-    case "@basket/changeQuantity":
-      const { action, item } = action.payload;
-      const finded = state.products.find((product) => product.id === item.id);
+    case "@basket/changeQuantity": 
+      const { direction , item } = action.payload;
+      const finded = state.products[item.id]
       if (finded) {
-        state.products[id].quantity += action;
+        if (finded.quantity <= 0 && direction === -1) return state
+        const quantity = finded.quantity += direction
+        return {
+          ...state,
+          products: {...state.products, [item.id]: {...item, quantity}}
+        }
       } else {
-        state.products.concat(item);
+        return {
+          ...state, 
+          products: {...state.products, [item.id]: {...item, quantity: 1}}
+        }
+
       }
-      return state;
     default:
       return state;
   }
@@ -43,6 +54,20 @@ export const filterByCategorie = (categorie) => {
 export const changeQuantity = (item, action) => {
   return {
     type: "@basket/changeQuantity",
-    payload: { item, action },
+    payload: { item, direction: action },
   };
 };
+
+
+export const checkExists = (item) => {
+  return {
+    type: "@bakset/exist",
+    payload: { item }
+  }
+}
+export const deleteItem = (item) => {
+  return {
+    type: "@basket/remove",
+    payload: {item}
+  }
+}

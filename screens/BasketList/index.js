@@ -6,24 +6,23 @@ import {
   SafeAreaView,
   ScrollView,
   Text,
+  TouchableOpacity,
   View,
 } from "react-native";
 import { SharedElement } from "react-navigation-shared-element";
 import { ScreensNavigation } from "../../navigator/MainNavigator";
 import { styles } from "../../styles/Posts";
-import { Header } from "../../components/Header";
-import { useGetStore } from "../../hooks/useGet";
-import { getAllProducts } from "../../services/products";
-import { initProducts } from "../../reducers/products";
-import { Categories } from "../../components/Categories";
+import { ChangeQuantity } from "../../components/ChangeQuantity";
 import { FlatList } from "react-native-gesture-handler";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteItem } from "../../reducers/basket";
 
-export const ProductsList = ({ navigation }) => {
-  const { loading, error, data } = useGetStore(
-    getAllProducts,
-    initProducts,
-    (state) => state.products
-  );
+
+export const BasketList = ({ navigation }) => {
+  const basket = useSelector(state => state.basket.products)
+  const products = Object.values(basket)
+  const dispatch = useDispatch()
+
   const getCategorieById = (id) => {
     // return categories.find((categorie) => categorie.id === id).description;
     return " ";
@@ -34,7 +33,7 @@ export const ProductsList = ({ navigation }) => {
         marginBottom: 10 * 2,
       }}
       onPress={() =>
-          navigation.push(ScreensNavigation["DETAIL_PRODUCT"], {
+        navigation.push(ScreensNavigation["DETAIL_PRODUCT"], {
           item,
         })
       }
@@ -84,28 +83,46 @@ export const ProductsList = ({ navigation }) => {
           </View>
         ))}
         <Text style={{ ...STYLE.h4 }}>$ {item.price}</Text>
+        <Text style={{ ...STYLE.h4 }}> Total: $ {(item.price * basket[item.id].quantity).toFixed(2)}</Text>
       </View>
+
+      <ChangeQuantity
+        basket={basket}
+        item={item}
+      />
+      <TouchableOpacity style={{ borderRadius: 10, ...STYLE.shadow, marginTop: 10, justifyContent: "center", backgroundColor: "red" }}
+        onPress={() => { dispatch(deleteItem(item)) }}>
+        <Text style={{ textAlign: "center", color: "white", }}>Eliminar</Text>
+      </TouchableOpacity>
     </Pressable>
   );
 
+
+
   return (
     <SafeAreaView style={styles.wrapper}>
-      <Header />
-      <Categories />
+      <Text style={styles.productTitle}>Carrito</Text>
+      <TouchableOpacity
+        style={{ backgroundColor: "green", borderRadius: 10, margin: 10 }}
+        onPress={() =>
+          navigation.push(ScreensNavigation["PAYMENT"] )}
+      >
+        <Text style={{ ...styles.productTitle, color: "white", textAlign: "center" }}>Comprar</Text>
+      </TouchableOpacity>
       <ScrollView>
         <View style={styles.products}>
-          {!loading && !error ? (
+          {products.length > 0 ? (
             <FlatList
-              data={data}
+              data={products}
               renderItem={renderItem}
               contentContainerStyle={{
                 paddingHorizontal: 10 * 2,
                 paddingBottom: 60,
               }}
             />
-          ) : null}
+          ) : <Text h1>Agrega productos al carrito</Text>}
         </View>
       </ScrollView>
     </SafeAreaView>
-  );
-};
+  )
+}

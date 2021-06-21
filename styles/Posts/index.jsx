@@ -5,6 +5,7 @@ export const SPACING = 15;
 export const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
+    marginTop: 20
   },
   listHeader: {
     fontSize: 28,

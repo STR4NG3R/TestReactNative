@@ -1,9 +1,8 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { ProductsList } from "../../screens/ProductsList";
 import { Image, View, TouchableOpacity } from "react-native";
 import Svg, { Path } from "react-native-svg";
-import { MainNavigator } from "../MainNavigator";
+import { BasketNavigator, MainNavigator } from "../MainNavigator";
 
 const Tab = createBottomTabNavigator();
 
@@ -70,7 +69,7 @@ export const BottomNavigator = () => {
         },
         {
           name: "Basket",
-          component: MainNavigator,
+          component: BasketNavigator,
           uri: "https://image.flaticon.com/icons/png/512/60/60992.png",
         },
         {
